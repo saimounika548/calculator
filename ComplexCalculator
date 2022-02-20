@@ -1,0 +1,62 @@
+
+
+import java.util.Scanner;
+
+public class ComplexCalculator {
+
+    public static void main(String[] args) {
+        String a=getInput("Enter a numeric value:");
+        String b=getInput("Enter a numeric value:");
+        String c=getInput("Choose an operation (+ - * /):");
+        double res=0;
+        try{
+            switch(c){
+                case "+":
+                    res=add(a,b);
+                    break;
+                case "-":
+                    res=sub(a,b);
+                    break;
+                case "*":
+                    res=mul(a,b);
+                    break;
+                case "/":
+                    res=div(a,b);
+                    break;
+                default:
+                    System.out.println("Invalid Operation!");
+                    return;
+            }
+            System.out.println("The output is "+res);
+        }catch(Exception e){
+            System.out.println("Number formatting exception "+e.getMessage());
+        }
+    }
+    private static double add(String a,String b){
+        double d1=Double.parseDouble(a);
+        double d2=Double.parseDouble(b);
+        return d1+d2;
+    }
+    private static double sub(String a,String b){
+        double d1=Double.parseDouble(a);
+        double d2=Double.parseDouble(b);
+        return d1-d2;
+    }
+    private static double mul(String a,String b){
+        double d1=Double.parseDouble(a);
+        double d2=Double.parseDouble(b);
+        return d1*d2;
+    }
+    private static double div(String a,String b){
+        double d1=Double.parseDouble(a);
+        double d2=Double.parseDouble(b);
+        return d1/d2;
+    }
+
+    private static String getInput(String value){
+        System.out.println(value);
+        Scanner scanner=new Scanner(System.in);
+        return scanner.nextLine();
+    }
+
+}
